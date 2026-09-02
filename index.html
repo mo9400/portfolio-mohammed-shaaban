@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="معرض أعمال م. محمد شعبان ريمه — مطور Full-stack يبني منتجات ويب كاملة من الفكرة حتى الإطلاق، مع دعم العربية والإنجليزية وRTL.">
+  <meta name="theme-color" content="#0d1b2a">
+  <title>م. محمد شعبان ريمه | Portfolio</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link no-print" href="#projects">تخطي إلى المشاريع</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="page-glow" aria-hidden="true"></div>
+  <div class="pointer-glow" id="pointerGlow" aria-hidden="true"></div>
+
+  <header class="topbar no-print">
+    <div class="topbar-inner">
+      <a href="#about" class="brand">
+        <span class="brand-mark"><span class="ar">م</span><span class="en">M</span></span>
+        <span class="brand-text">
+          <span class="ar">محمد شعبان ريمه</span>
+          <span class="en">Mohammed Shaaban Rima</span>
+        </span>
+      </a>
+
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="القائمة">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="siteNav">
+        <a href="#about" data-nav="ar-about">عنّي</a>
+        <a href="#projects" data-nav="ar-projects">المشاريع</a>
+        <a href="#contact" data-nav="ar-contact">تواصل</a>
+        <a href="#about" data-nav="en-about" class="en">About</a>
+        <a href="#projects" data-nav="en-projects" class="en">Projects</a>
+        <a href="#contact" data-nav="en-contact" class="en">Contact</a>
+      </nav>
+
+      <button type="button" id="langToggle" class="btn-lang">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+          <path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+        </svg>
+        <span id="langText">English</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow hero-in" style="--d:.05s">
+            <span class="dot"></span>
+            <span class="ar">متاح للعمل عن بُعد · Full-stack</span>
+            <span class="en">Available for remote work · Full-stack</span>
+          </p>
+          <h1 class="hero-in" style="--d:.15s">
+            <span class="ar">م. محمد شعبان ريمه</span>
+            <span class="en">Eng. Mohammed Shaaban Rima</span>
+          </h1>
+          <p class="tagline hero-in" style="--d:.28s">
+            <span class="ar">أبني منتجات ويب كاملة — من الفكرة إلى الإطلاق. واجهات، باكند، دفع، وتطبيقات تعمل بالعربية والإنجليزية مع دعم RTL.</span>
+            <span class="en">I build complete web products — from idea to launch. Frontend, backend, payments, and bilingual Arabic/English apps with RTL support.</span>
+          </p>
+          <div class="hero-actions hero-in" style="--d:.4s">
+            <a href="#projects" class="btn-primary">
+              <span class="ar">استعرض أعمالي</span>
+              <span class="en">View my work</span>
+            </a>
+            <a href="#contact" class="btn-ghost">
+              <span class="ar">تواصل معي</span>
+              <span class="en">Get in touch</span>
+            </a>
+          </div>
+          <div class="hero-stats hero-in" style="--d:.52s">
+            <div class="stat">
+              <strong data-count="10" data-suffix="+">0</strong>
+              <span class="ar">منتجات مطلقة</span>
+              <span class="en">Shipped products</span>
+            </div>
+            <div class="stat">
+              <strong data-count="3">0</strong>
+              <span class="ar">ويب · سطح مكتب · موبايل</span>
+              <span class="en">Web · Desktop · Mobile</span>
+            </div>
+            <div class="stat">
+              <strong>AR/EN</strong>
+              <span class="ar">ثنائي اللغة وRTL</span>
+              <span class="en">Bilingual &amp; RTL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-frame f1"><img src="images/advo.jpg" alt=""></div>
+          <div class="visual-frame f2"><img src="images/balance.jpg" alt=""></div>
+          <div class="visual-frame f3"><img src="images/carrental.jpg" alt=""></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-block" id="aboutdesc">
+      <div class="container">
+        <div class="about-layout">
+          <div class="about-copy js-reveal">
+            <p class="section-kicker">
+              <span class="ar">01 — عنّي</span>
+              <span class="en">01 — About</span>
+            </p>
+            <h2 class="section-title">
+              <span class="ar">أصمّم أنظمة تشغيلية تحل مشاكل حقيقية</span>
+              <span class="en">I design operational systems that solve real problems</span>
+            </h2>
+            <p class="about-text">
+              <span class="ar">مطور Full-stack مرن، أصمّم وأبني منتجات ويب متكاملة تشمل الواجهة، الباكند، قواعد البيانات، والدفع (Stripe)، مع خبرة في منصات Supabase والتطبيقات المحلية (Offline-first) والـ PWA. أجيد بناء أنظمة بالعربية والإنجليزية مع دعم RTL، وأركّز على المنتجات التي تُستخدم يومياً — من العيادات والمتاجر إلى السياحة والتدريب.</span>
+              <span class="en">A flexible full-stack developer who designs and builds complete web products — frontend, backend, databases, and payments (Stripe) — with experience in Supabase platforms, offline-first apps, and PWAs. Skilled at Arabic/English systems with RTL support, focused on products people use every day: clinics, shops, tourism, and training.</span>
+            </p>
+          </div>
+          <div class="tech-stack js-reveal" style="--d:.12s">
+            <p class="tech-label">
+              <span class="ar">التقنيات التي أعمل بها</span>
+              <span class="en">Technologies I work with</span>
+            </p>
+            <div class="tech-chips" id="techChips"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+        <p class="section-kicker js-reveal">
+          <span class="ar">02 — الأعمال</span>
+          <span class="en">02 — Work</span>
+        </p>
+        <div class="projects-head js-reveal" style="--d:.08s">
+          <h2 class="section-title">
+            <span class="ar">مشاريع مختارة</span>
+            <span class="en">Selected projects</span>
+          </h2>
+          <p class="projects-lead">
+            <span class="ar">منصات حجز، أنظمة عيادات، نقاط بيع، وتطبيقات موبايل — كلها مبنية للإنتاج الفعلي.</span>
+            <span class="en">Booking platforms, clinic systems, point of sale, and mobile apps — all built for real production use.</span>
+          </p>
+        </div>
+        <div class="filters no-print" id="filters"></div>
+        <div class="grid" id="projectGrid"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <p class="section-kicker kicker-light js-reveal">
+          <span class="ar">03 — تواصل</span>
+          <span class="en">03 — Contact</span>
+        </p>
+        <h2 class="contact-title js-reveal" style="--d:.08s">
+          <span class="ar">لنبنِ شيئاً يستحق الإطلاق</span>
+          <span class="en">Let’s build something worth shipping</span>
+        </h2>
+        <p class="contact-lead js-reveal" style="--d:.16s">
+          <span class="ar">متاح لمشاريع عن بُعد. راسلني أو تواصل عبر واتساب.</span>
+          <span class="en">Available for remote projects. Email me or reach out on WhatsApp.</span>
+        </p>
+
+        <div class="contact-grid">
+          <a class="contact-card js-reveal" href="mailto:eng.mohammed.shaaban@email.com">
+            <span class="c-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </span>
+            <span class="c-label"><span class="ar">البريد</span><span class="en">Email</span></span>
+            <span class="c-value">eng.mohammed.shaaban@email.com</span>
+          </a>
+          <a class="contact-card js-reveal" style="--d:.1s" href="https://wa.me/963981061026" target="_blank" rel="noopener">
+            <span class="c-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M6.6 10.8c1.4 2.7 3.9 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.2 1.1L6.6 10.8z"/></svg>
+            </span>
+            <span class="c-label"><span class="ar">واتساب / هاتف</span><span class="en">WhatsApp / Phone</span></span>
+            <span class="c-value">0981061026</span>
+          </a>
+          <div class="contact-card is-static js-reveal" style="--d:.2s">
+            <span class="c-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg>
+            </span>
+            <span class="c-label"><span class="ar">الموقع</span><span class="en">Location</span></span>
+            <span class="c-value">
+              <span class="ar">سوريا — حلب · عمل عن بُعد</span>
+              <span class="en">Syria — Aleppo · Remote</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button type="button" class="to-top" id="toTop" aria-label="العودة للأعلى">
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+  </button>
+
+  <footer class="footer no-print">
+    <span class="ar">© 2026 م. محمد شعبان ريمه — جميع الحقوق محفوظة</span>
+    <span class="en">© 2026 Eng. Mohammed Shaaban Rima — All rights reserved</span>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
