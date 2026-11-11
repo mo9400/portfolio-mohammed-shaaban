@@ -2,3 +2,11 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 *.log
+node_modules/
+.frames/
+promo-video/ref-frames/
+promo-video/.frames/
+*.mp4
+.DS_Store
+.env
+.env.*

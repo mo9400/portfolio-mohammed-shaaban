@@ -1,212 +1,639 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr" data-motion="on">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="معرض أعمال م. محمد شعبان ريمه — مطور Full-stack يبني منتجات ويب كاملة من الفكرة حتى الإطلاق، مع دعم العربية والإنجليزية وRTL.">
-  <meta name="theme-color" content="#0d1b2a">
-  <title>م. محمد شعبان ريمه | Portfolio</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090909" />
+  <title>MOHAMMED SHAABAN | Full-Stack Web &amp; App Developer / Architect</title>
+  <meta name="description" content="Eng. Mohammed Shaaban Rima — Full-stack developer & systems architect building web, desktop, and mobile products from wireframe to launch, with Arabic/English RTL support." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preload" as="image" href="images/mohammed-portrait.webp" fetchpriority="high" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cairo:wght@400;500;600;700;800;900&family=Caveat:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <a class="skip-link no-print" href="#projects">تخطي إلى المشاريع</a>
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-  <div class="page-glow" aria-hidden="true"></div>
-  <div class="pointer-glow" id="pointerGlow" aria-hidden="true"></div>
+  <a class="skip-link" href="#portfolio" data-i18n="skip">Skip to work</a>
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
 
-  <header class="topbar no-print">
-    <div class="topbar-inner">
-      <a href="#about" class="brand">
-        <span class="brand-mark"><span class="ar">م</span><span class="en">M</span></span>
-        <span class="brand-text">
-          <span class="ar">محمد شعبان ريمه</span>
-          <span class="en">Mohammed Shaaban Rima</span>
-        </span>
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="siteHeader">
+    <a class="wordmark" href="#home" aria-label="Mohammed Shaaban, home">
+      <span class="wordmark-text" data-i18n="brandWord">SHAABAN</span><span>®</span>
+    </a>
+
+    <nav class="desktop-nav" id="desktopNav" aria-label="Main navigation">
+      <a href="#portfolio" data-section="portfolio" class="active" data-i18n="navWork">Work</a>
+      <a href="#about" data-section="about" data-i18n="navAbout">About</a>
+      <a href="#experience" data-section="experience" data-i18n="navJourney">Journey</a>
+      <a href="#contact" data-section="contact" data-i18n="navContact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button type="button" class="motion-toggle" id="agentToggleBtn" title="Toggle Live AI Agents Tour">
+        <span class="agent-dot-pulse"></span>
+        <span id="agentToggleLabel">Agents live</span>
+      </button>
+
+      <button type="button" class="motion-toggle" id="motionToggle" aria-label="Pause animation" aria-pressed="false">
+        <svg id="motionIconPause" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+        </svg>
+        <svg id="motionIconPlay" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+          <polygon points="6 3 20 12 6 21 6 3"/>
+        </svg>
+        <span id="motionText">Motion on</span>
+      </button>
+
+      <button type="button" class="lang-switch" id="langToggle" aria-label="Switch language">
+        <span id="langText">العربية</span>
+      </button>
+
+      <a class="header-contact" href="#contact">
+        <span data-i18n="letsTalk">Let’s talk</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+        </svg>
       </a>
 
-      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="القائمة">
-        <span></span><span></span><span></span>
-      </button>
-
-      <nav class="nav" id="siteNav">
-        <a href="#about" data-nav="ar-about">عنّي</a>
-        <a href="#projects" data-nav="ar-projects">المشاريع</a>
-        <a href="#contact" data-nav="ar-contact">تواصل</a>
-        <a href="#about" data-nav="en-about" class="en">About</a>
-        <a href="#projects" data-nav="en-projects" class="en">Projects</a>
-        <a href="#contact" data-nav="en-contact" class="en">Contact</a>
-      </nav>
-
-      <button type="button" id="langToggle" class="btn-lang">
-        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-          <path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+      <button type="button" class="menu-toggle icon-button" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <svg id="menuIconOpen" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/>
         </svg>
-        <span id="langText">English</span>
+        <svg id="menuIconClose" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+        </svg>
       </button>
     </div>
+
+    <nav id="mobileMenu" class="mobile-menu" aria-label="Mobile navigation" hidden>
+      <a href="#home" data-mobile-link><span>01</span><em data-i18n="navHome">Home</em><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="#portfolio" data-mobile-link><span>02</span><em data-i18n="navWork">Work</em><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="#about" data-mobile-link><span>03</span><em data-i18n="navAbout">About</em><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="#experience" data-mobile-link><span>04</span><em data-i18n="navJourney">Journey</em><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+      <a href="#contact" data-mobile-link><span>05</span><em data-i18n="navContact">Contact</em><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+    </nav>
   </header>
 
   <main>
-    <section id="about" class="hero">
-      <div class="hero-inner">
-        <div class="hero-text">
-          <p class="eyebrow hero-in" style="--d:.05s">
-            <span class="dot"></span>
-            <span class="ar">متاح للعمل عن بُعد · Full-stack</span>
-            <span class="en">Available for remote work · Full-stack</span>
-          </p>
-          <h1 class="hero-in" style="--d:.15s">
-            <span class="ar">م. محمد شعبان ريمه</span>
-            <span class="en">Eng. Mohammed Shaaban Rima</span>
-          </h1>
-          <p class="tagline hero-in" style="--d:.28s">
-            <span class="ar">أبني منتجات ويب كاملة — من الفكرة إلى الإطلاق. واجهات، باكند، دفع، وتطبيقات تعمل بالعربية والإنجليزية مع دعم RTL.</span>
-            <span class="en">I build complete web products — from idea to launch. Frontend, backend, payments, and bilingual Arabic/English apps with RTL support.</span>
-          </p>
-          <div class="hero-actions hero-in" style="--d:.4s">
-            <a href="#projects" class="btn-primary">
-              <span class="ar">استعرض أعمالي</span>
-              <span class="en">View my work</span>
-            </a>
-            <a href="#contact" class="btn-ghost">
-              <span class="ar">تواصل معي</span>
-              <span class="en">Get in touch</span>
-            </a>
-          </div>
-          <div class="hero-stats hero-in" style="--d:.52s">
-            <div class="stat">
-              <strong data-count="10" data-suffix="+">0</strong>
-              <span class="ar">منتجات مطلقة</span>
-              <span class="en">Shipped products</span>
-            </div>
-            <div class="stat">
-              <strong data-count="3">0</strong>
-              <span class="ar">ويب · سطح مكتب · موبايل</span>
-              <span class="en">Web · Desktop · Mobile</span>
-            </div>
-            <div class="stat">
-              <strong>AR/EN</strong>
-              <span class="ar">ثنائي اللغة وRTL</span>
-              <span class="en">Bilingual &amp; RTL</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual" aria-hidden="true">
-          <div class="visual-frame f1"><img src="images/advo.jpg" alt=""></div>
-          <div class="visual-frame f2"><img src="images/balance.jpg" alt=""></div>
-          <div class="visual-frame f3"><img src="images/carrental.jpg" alt=""></div>
-        </div>
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero">
+      <div class="hero-top">
+        <span data-agent-layer="Role Tag">
+          <span data-i18n="heroTop1">FULL-STACK WEB &amp; APP DEVELOPER</span> <br />
+          <span class="muted" data-i18n="heroTop2">SYSTEMS · UI / UX ARCHITECT</span>
+        </span>
+        <span class="availability" data-agent-layer="Status Badge">
+          <i></i>
+          <span>
+            <span data-i18n="availShort">AVAILABLE</span><span class="avail-long" data-i18n="availLong"> FOR NEW PROJECTS</span>
+          </span>
+        </span>
       </div>
-    </section>
 
-    <section class="about-block" id="aboutdesc">
-      <div class="container">
-        <div class="about-layout">
-          <div class="about-copy js-reveal">
-            <p class="section-kicker">
-              <span class="ar">01 — عنّي</span>
-              <span class="en">01 — About</span>
-            </p>
-            <h2 class="section-title">
-              <span class="ar">أصمّم أنظمة تشغيلية تحل مشاكل حقيقية</span>
-              <span class="en">I design operational systems that solve real problems</span>
-            </h2>
-            <p class="about-text">
-              <span class="ar">مطور Full-stack مرن، أصمّم وأبني منتجات ويب متكاملة تشمل الواجهة، الباكند، قواعد البيانات، والدفع (Stripe)، مع خبرة في منصات Supabase والتطبيقات المحلية (Offline-first) والـ PWA. أجيد بناء أنظمة بالعربية والإنجليزية مع دعم RTL، وأركّز على المنتجات التي تُستخدم يومياً — من العيادات والمتاجر إلى السياحة والتدريب.</span>
-              <span class="en">A flexible full-stack developer who designs and builds complete web products — frontend, backend, databases, and payments (Stripe) — with experience in Supabase platforms, offline-first apps, and PWAs. Skilled at Arabic/English systems with RTL support, focused on products people use every day: clinics, shops, tourism, and training.</span>
-            </p>
-          </div>
-          <div class="tech-stack js-reveal" style="--d:.12s">
-            <p class="tech-label">
-              <span class="ar">التقنيات التي أعمل بها</span>
-              <span class="en">Technologies I work with</span>
-            </p>
-            <div class="tech-chips" id="techChips"></div>
-          </div>
-        </div>
+      <div class="hero-title display" id="heroTitle" aria-hidden="true">PORTFOLIO</div>
+
+      <div class="hero-portrait" id="heroPortrait" data-agent-layer="Studio Portrait" title="Click to replay wireframe-to-cutout animation">
+        <span class="portrait-ghost-layer layer-1" aria-hidden="true"></span>
+        <span class="portrait-ghost-layer layer-2" aria-hidden="true"></span>
+        <span class="hero-portrait-placeholder-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <path d="m21 15-5-5L5 21"/>
+          </svg>
+        </span>
+        <img
+          src="images/mohammed-portrait.webp"
+          alt="Eng. Mohammed Shaaban Rima — Full-Stack Developer"
+          width="768"
+          height="1024"
+          fetchpriority="high"
+        />
       </div>
-    </section>
 
-    <section id="projects" class="projects">
-      <div class="container">
-        <p class="section-kicker js-reveal">
-          <span class="ar">02 — الأعمال</span>
-          <span class="en">02 — Work</span>
+      <div class="hero-intro" id="heroIntro" data-agent-layer="Hero Copy">
+        <p class="handwriting" data-i18n="heroHello">Hello, I’m</p>
+        <h1 class="display" data-agent-layer="Primary Heading">
+          <span data-i18n="heroName">SHAABAN</span><span>.</span>
+        </h1>
+        <p class="hero-role" data-i18n-html="heroRole">FULL-STACK DEVELOPER &amp; <br />SYSTEMS ARCHITECT</p>
+        <p class="hero-description" data-i18n-html="heroDesc">
+          Designing interfaces. Shipping products. <br />
+          I turn ideas into fast web platforms, desktop systems, and mobile apps people actually enjoy using — from first wireframe to launch day.
         </p>
-        <div class="projects-head js-reveal" style="--d:.08s">
-          <h2 class="section-title">
-            <span class="ar">مشاريع مختارة</span>
-            <span class="en">Selected projects</span>
-          </h2>
-          <p class="projects-lead">
-            <span class="ar">منصات حجز، أنظمة عيادات، نقاط بيع، وتطبيقات موبايل — كلها مبنية للإنتاج الفعلي.</span>
-            <span class="en">Booking platforms, clinic systems, point of sale, and mobile apps — all built for real production use.</span>
-          </p>
+        <a href="#portfolio" class="primary-link js-magnetic" data-agent-layer="Primary CTA">
+          <span data-i18n="seeWork">See my work</span>
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>
+          </svg>
+        </a>
+        <span class="hero-location">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span data-i18n="heroLocation">SYRIA — ALEPPO · REMOTE WORLDWIDE</span>
+        </span>
+      </div>
+
+      <div class="hero-side" id="heroSide" data-agent-layer="Hero Metrics">
+        <div class="hero-manifesto">
+          <span class="crosshair" aria-hidden="true">✳</span>
+          <p data-i18n-html="heroManifesto">Every pixel. <br />A purpose.</p>
         </div>
-        <div class="filters no-print" id="filters"></div>
-        <div class="grid" id="projectGrid"></div>
+        <div class="hero-stats">
+          <div data-agent-layer="Stat Counter 01">
+            <span class="display"><strong data-count="10">10</strong><span>+</span></span>
+            <p data-i18n-html="stat1Label">SHIPPED PRODUCTS <br />IN PRODUCTION</p>
+          </div>
+          <div data-agent-layer="Stat Counter 02">
+            <span class="display"><strong data-count="3">3</strong></span>
+            <p data-i18n-html="stat2Label">PLATFORMS BUILT <br />WEB · DESKTOP · MOBILE</p>
+          </div>
+          <div class="hero-award-stat" data-agent-layer="Stat Counter 03">
+            <span class="display"><strong data-count="100">100</strong><span>%</span></span>
+            <a href="#contact" aria-label="Bilingual RTL and full-stack delivery">
+              <span data-i18n-html="stat3Label">FULL-STACK &amp; RTL <br />ARABIC / ENGLISH</span>
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <button type="button" class="reel-button" id="heroFeaturedBtn" data-agent-layer="Featured Trigger">
+          <span class="play-circle">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+          </span>
+          <span data-i18n="viewFeatured">VIEW FEATURED BUILD</span>
+          <span class="muted" data-i18n="appWeb">APP / WEB</span>
+        </button>
+
+        <span class="hero-scroll">
+          <span data-i18n="scrollDiscover">SCROLL TO DISCOVER</span>
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14"/><path d="m19 12-7 7-7-7"/>
+          </svg>
+        </span>
+
+        <span class="edition" data-i18n="heroEdition">SELECTED WORK / 2020–2026</span>
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <div class="container">
-        <p class="section-kicker kicker-light js-reveal">
-          <span class="ar">03 — تواصل</span>
-          <span class="en">03 — Contact</span>
-        </p>
-        <h2 class="contact-title js-reveal" style="--d:.08s">
-          <span class="ar">لنبنِ شيئاً يستحق الإطلاق</span>
-          <span class="en">Let’s build something worth shipping</span>
+    <!-- ===== 01 / SELECTED WORK ===== -->
+    <section id="portfolio" class="portfolio section-wrap">
+      <div class="section-heading js-reveal" data-agent-layer="Section Header 01">
+        <div>
+          <span class="eyebrow" data-i18n="workEyebrow">01 / SELECTED WORK</span>
+          <h2><span data-i18n="workTitle">WORK THAT SPEAKS</span><span class="accent">.</span></h2>
+        </div>
+        <button type="button" class="text-link" id="toggleAllWorkBtn">
+          <span id="toggleAllWorkText" data-i18n="allWork">ALL WORK (10)</span>
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="portfolio-toolbar js-reveal" data-agent-layer="Filter Toolbar">
+        <div class="filters" id="portfolioFilters" role="group" aria-label="Work categories"></div>
+        <label class="search-box">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+          <span data-i18n="searchLabel">Search</span>
+          <input type="search" id="projectSearch" aria-label="Search work" placeholder="Title or tech…" />
+        </label>
+      </div>
+
+      <div class="project-grid" id="projectGrid"></div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <p id="emptyStateText">No work found.</p>
+        <button type="button" class="text-link" id="resetSearchBtn">
+          <span data-i18n="resetSearch">Reset search</span>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="load-more" id="loadMoreWrap">
+        <button type="button" class="outline-button" id="showMoreBtn">
+          <span id="showMoreText" data-i18n="showAllProjects">Show all 10 projects</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14"/><path d="M12 5v14"/>
+          </svg>
+        </button>
+        <span id="projectCountStatus">Showing 3 featured of 10 projects</span>
+      </div>
+
+      <!-- ===== BUILT WITH / TOOLS MARQUEE ===== -->
+      <div class="brand-section js-reveal" data-agent-layer="Tech Stack Rail">
+        <div class="brand-heading">
+          <p>
+            <span data-i18n="builtWith">BUILT WITH</span> <br />
+            <strong data-i18n="toolsTrust">THE TOOLS I TRUST.</strong>
+          </p>
+          <div>
+            <button type="button" class="brand-all" id="brandSeeAllBtn" aria-expanded="false" aria-controls="brandCollection">
+              <span id="brandSeeAllText">SEE ALL (12)</span>
+              <svg id="brandSeeAllIcon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14"/><path d="M12 5v14"/>
+              </svg>
+            </button>
+            <button type="button" class="icon-button brand-pause" id="brandPauseBtn" aria-label="Pause logo animation" aria-pressed="false">
+              <svg id="brandPauseIcon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+              </svg>
+            </button>
+            <button type="button" class="icon-button" id="brandPrevBtn" aria-label="Previous tool">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+            </button>
+            <button type="button" class="icon-button" id="brandNextBtn" aria-label="Next tool">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="brandCollection" class="brand-viewport" tabindex="0" role="region" aria-label="Tools and technologies">
+          <div class="brand-rail" id="brandRail"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FROM WIREFRAME TO LIVE (INTERACTIVE SLIDER) ===== -->
+    <section class="breakdown section-wrap" id="breakdownSection" aria-labelledby="breakdownTitle">
+      <div class="breakdown-copy js-reveal" data-agent-layer="Wireframe Breakdown">
+        <span class="eyebrow" data-i18n="breakdownEyebrow">DESIGN UNDER THE HOOD</span>
+        <h2 id="breakdownTitle" class="display">
+          <span data-i18n="fromWireframe">FROM WIREFRAME.</span> <br />
+          <span class="accent" data-i18n="toLive">TO LIVE.</span>
         </h2>
-        <p class="contact-lead js-reveal" style="--d:.16s">
-          <span class="ar">متاح لمشاريع عن بُعد. راسلني أو تواصل عبر واتساب.</span>
-          <span class="en">Available for remote projects. Email me or reach out on WhatsApp.</span>
+        <p data-i18n-html="breakdownDesc">
+          One page. Every layer of thinking. <br />
+          Drag to see a grey-box wireframe become a finished, live operational interface.
         </p>
+        <span class="breakdown-credit" data-i18n-html="breakdownCredit">
+          SHAABAN FULL-STACK STUDIO / 2026 <br />
+          UI/UX · ARCHITECTURE · PRODUCTION
+        </span>
+      </div>
 
-        <div class="contact-grid">
-          <a class="contact-card js-reveal" href="mailto:eng.mohammed.shaaban@email.com">
-            <span class="c-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <div class="comparison js-reveal" data-agent-layer="Interactive Comparison Stage">
+        <div class="comparison-stage" id="comparisonStage" style="--cut: 52%;">
+          <span class="media-image loaded">
+            <img src="images/studio-wireframe.webp" alt="Grey-box wireframe layout" width="1280" height="730" loading="lazy" />
+          </span>
+          <div class="comparison-final">
+            <span class="media-image loaded">
+              <img src="images/studio-final.webp" alt="Finished live interface design" width="1280" height="730" loading="lazy" />
             </span>
-            <span class="c-label"><span class="ar">البريد</span><span class="en">Email</span></span>
-            <span class="c-value">eng.mohammed.shaaban@email.com</span>
-          </a>
-          <a class="contact-card js-reveal" style="--d:.1s" href="https://wa.me/963981061026" target="_blank" rel="noopener">
-            <span class="c-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M6.6 10.8c1.4 2.7 3.9 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.2 1.1L6.6 10.8z"/></svg>
+          </div>
+          <span class="comparison-label raw-label" data-i18n="wireframeLabel">WIREFRAME</span>
+          <span class="comparison-label final-label" data-i18n="finalLabel">FINAL DESIGN</span>
+          <div class="comparison-divider">
+            <span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
             </span>
-            <span class="c-label"><span class="ar">واتساب / هاتف</span><span class="en">WhatsApp / Phone</span></span>
-            <span class="c-value">0981061026</span>
-          </a>
-          <div class="contact-card is-static js-reveal" style="--d:.2s">
-            <span class="c-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg>
-            </span>
-            <span class="c-label"><span class="ar">الموقع</span><span class="en">Location</span></span>
-            <span class="c-value">
-              <span class="ar">سوريا — حلب · عمل عن بُعد</span>
-              <span class="en">Syria — Aleppo · Remote</span>
-            </span>
+          </div>
+          <input
+            type="range"
+            id="comparisonRange"
+            min="0"
+            max="100"
+            value="52"
+            aria-label="Comparison before and after"
+          />
+        </div>
+        <div class="comparison-caption">
+          <span data-i18n="dragProcess">DRAG TO SEE THE PROCESS</span>
+          <span data-i18n="dragScroll">DRAG / SCROLL</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 02 / BEHIND THE CRAFT (ABOUT) ===== -->
+    <section id="about" class="about section-wrap">
+      <div class="about-lead js-reveal" data-agent-layer="About Lead">
+        <div>
+          <span class="eyebrow" data-i18n="aboutEyebrow">02 / BEHIND THE CRAFT</span>
+          <h2 class="display">
+            <span data-i18n="moreThanCode">MORE THAN CODE.</span> <br />
+            <span data-i18n="crafting">CRAFTING </span><span class="accent" data-i18n="experiences">EXPERIENCES.</span>
+          </h2>
+        </div>
+        <p data-i18n="aboutBio">
+          I’m Eng. Mohammed Shaaban Rima, a flexible Full-Stack Developer who designs and builds complete operational products — frontend, backend, databases, and payments (Stripe) — with deep experience in Supabase platforms, offline-first desktop/POS apps, and bilingual Arabic/English RTL systems used daily in clinics, tourism, shops, and training.
+        </p>
+      </div>
+
+      <div class="studio-grid">
+        <!-- Column 1: Expertise & Skills -->
+        <div class="education-panel js-reveal" data-agent-layer="Expertise & Toolkit">
+          <h3 class="panel-heading" data-i18n="expertiseHeading">EXPERTISE &amp; SKILLS</h3>
+          <p class="eyebrow accent" data-i18n="eduHeading">ENGINEERING &amp; ARCHITECTURE</p>
+
+          <div class="education-row">
+            <strong data-i18n="edu1Title">Full-Stack Product Engineer</strong>
+            <span>2020 – NOW</span>
+            <p data-i18n="edu1Desc">End-to-end web, desktop (Electron), and mobile (Flutter) application engineering.</p>
+          </div>
+
+          <div class="education-row">
+            <strong data-i18n="edu2Title">Operational &amp; Offline-First Systems</strong>
+            <span data-i18n="edu2Badge">PRODUCTION</span>
+            <p data-i18n="edu2Desc">React · TypeScript · Flutter · Supabase · Stripe · SQLite · Bilingual RTL</p>
+          </div>
+
+          <p class="eyebrow accent skills-heading" data-i18n="toolkitHeading">CREATIVE &amp; TECH TOOLKIT</p>
+          <div class="skill-tags" id="skillTags"></div>
+          <div class="software-row" id="softwareRow"></div>
+        </div>
+
+        <!-- Column 2: Process Track -->
+        <div class="process-panel js-reveal" id="processPanel" data-agent-layer="Process Pipeline">
+          <h3 class="panel-heading" data-i18n="processHeading">FROM CONCEPT TO LAUNCH</h3>
+          <div class="process-list">
+            <div class="process-track"><div id="processTrackFill"></div></div>
+            <div id="processRows"></div>
+          </div>
+        </div>
+
+        <!-- Column 3: Crimson Quote Card -->
+        <div class="quote-panel js-reveal" data-agent-layer="Studio Manifesto Card">
+          <span class="quote-mark display">“</span>
+          <blockquote data-i18n-html="quoteText">
+            From concept <br />
+            and user flows, <br />
+            <em>to pixel-perfect <br />digital products.</em>
+          </blockquote>
+          <span class="handwriting" data-i18n="quoteSig">Mohammed Shaaban</span>
+          <div class="quote-bottom">
+            <span data-i18n-html="quoteBottom">LET’S BUILD <br />SOMETHING EXCEPTIONAL.</span>
+            <span class="quote-symbol" aria-hidden="true">✳</span>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- ===== 03 / THE JOURNEY ===== -->
+    <section id="experience" class="journey section-wrap">
+      <div class="section-heading js-reveal" data-agent-layer="Journey Heading">
+        <div>
+          <span class="eyebrow" data-i18n="journeyEyebrow">03 / THE JOURNEY</span>
+          <h2><span data-i18n="journeyTitle">KEEP BUILDING. KEEP SHIPPING</span><span class="accent">.</span></h2>
+        </div>
+        <span class="text-link" style="cursor:default" data-i18n="journeySub">EXPERIENCE &amp; MILESTONES</span>
+      </div>
+
+      <div class="journey-grid">
+        <div class="experience-list" id="experienceList" data-agent-layer="Experience Accordion"></div>
+
+        <div class="awards-panel js-reveal" data-agent-layer="Milestones Panel">
+          <p class="eyebrow" data-i18n="milestonesEyebrow">A FEW MILESTONES</p>
+          <h3 class="display">
+            <span data-i18n="shippedWord">SHIPPED.</span> <br />
+            <span class="accent" data-i18n="liveUsedWord">LIVE. USED.</span>
+          </h3>
+          <div class="award-list" id="milestoneList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 04 / CONTACT ===== -->
+    <section id="contact" class="contact section-wrap">
+      <div class="contact-grid">
+        <div class="contact-intro js-reveal" data-agent-layer="Contact CTA">
+          <span class="eyebrow" data-i18n="contactEyebrow">04 / YOUR NEXT PROJECT</span>
+          <h2 class="display">
+            <span data-i18n="letsBuild">LET’S BUILD</span> <br />
+            <span data-i18n="together">TOGETHER</span><span class="accent">.</span>
+          </h2>
+          <p data-i18n-html="contactLead">
+            Got a website, clinic system, or mobile app in mind? <br />
+            Let’s make something people love to use.
+          </p>
+          <a href="https://wa.me/963981061026" target="_blank" rel="noopener noreferrer" class="contact-cta js-magnetic">
+            <span class="round-arrow">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+              </svg>
+            </span>
+            <span data-i18n="startConversation">START A CONVERSATION</span>
+          </a>
+        </div>
+
+        <div class="contact-links js-reveal" data-agent-layer="Contact Channels">
+          <a href="mailto:eng.mohammed.shaaban@email.com">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <span><small data-i18n="emailLabel">EMAIL</small>eng.mohammed.shaaban@email.com</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+
+          <a href="https://wa.me/963981061026" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span><small data-i18n="phoneLabel">PHONE / WHATSAPP</small>+963 981 061 026 (0981061026)</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+
+          <a href="https://advopassion.uaedv.com/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            <span><small data-i18n="flagshipLabel">FLAGSHIP PRODUCTION</small>advopassion.uaedv.com</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+
+          <a href="https://github.com/mohammed940" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
+            </svg>
+            <span><small>GITHUB</small>mohammed940</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+
+          <div>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span><small data-i18n="basedInLabel">BASED IN</small><em style="font-style:normal" data-i18n="basedInVal">Syria — Aleppo · Available Remote</em></span>
+          </div>
+        </div>
+
+        <div class="contact-reel js-reveal" data-agent-layer="3D Studio Reel">
+          <button type="button" id="contactReelBtn" aria-label="View featured studio build">
+            <div class="reel-screen">
+              <span class="reel-screen-top">SHAABAN STUDIO<span>LIVE SHOWCASE</span></span>
+              <img class="reel-video" src="images/studio-final.webp" alt="Mohammed Shaaban Studio Showcase" loading="lazy" />
+              <span class="reel-screen-title display">BUILD <br /><span>SMARTER.</span></span>
+              <span class="play-circle">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </span>
+            </div>
+            <span class="reel-caption" data-i18n="reelCaption">MOHAMMED SHAABAN — FULL-STACK STUDIO</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Expandable Project Brief -->
+      <details class="project-brief js-reveal" data-agent-layer="Project Brief Builder">
+        <summary>
+          <span data-i18n="tellProject">Tell me about your project</span>
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14"/><path d="M12 5v14"/>
+          </svg>
+        </summary>
+        <form id="briefForm">
+          <label>
+            <span data-i18n="yourName">Your Name</span>
+            <input name="name" required placeholder="Name or company" autocomplete="name" maxlength="100" />
+          </label>
+          <label>
+            <span data-i18n="projectType">Project type</span>
+            <select name="type">
+              <option value="Full-Stack Web Platform">Full-Stack Web Platform</option>
+              <option value="Mobile App (Flutter)">Mobile App (Flutter)</option>
+              <option value="Clinic / Healthcare System">Clinic / Healthcare System</option>
+              <option value="Offline-first POS / Desktop App">Offline-first POS / Desktop App</option>
+              <option value="E-Commerce & Stripe Integration">E-Commerce &amp; Stripe Integration</option>
+              <option value="Something else">Something else</option>
+            </select>
+          </label>
+          <label class="brief-message">
+            <span data-i18n="aboutProject">About the project</span>
+            <textarea name="message" required rows="3" placeholder="Tell me about your idea, requirements, and timeline…" maxlength="3000"></textarea>
+          </label>
+          <button class="solid-button" type="submit">
+            <span data-i18n="continueWhatsapp">Continue on WhatsApp</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+            </svg>
+          </button>
+          <p class="form-note" id="formNote" role="status" data-i18n="briefNote">Brief will open as a draft message in WhatsApp.</p>
+        </form>
+      </details>
     </section>
   </main>
 
-  <button type="button" class="to-top" id="toTop" aria-label="العودة للأعلى">
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
-  </button>
-
-  <footer class="footer no-print">
-    <span class="ar">© 2026 م. محمد شعبان ريمه — جميع الحقوق محفوظة</span>
-    <span class="en">© 2026 Eng. Mohammed Shaaban Rima — All rights reserved</span>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <a class="wordmark" href="#home"><span data-i18n="brandWord">SHAABAN</span><span>®</span></a>
+    <span data-i18n="footerCopy">© 2026 ENG. MOHAMMED SHAABAN RIMA · EVERY PIXEL HAS A PURPOSE.</span>
+    <div>
+      <a href="mailto:eng.mohammed.shaaban@email.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2">
+          <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/963981061026" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </a>
+      <a href="https://github.com/mohammed940" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>
+        </svg>
+      </a>
+      <a href="#home" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="m18 15-6-6-6 6"/>
+        </svg>
+      </a>
+    </div>
   </footer>
 
-  <script src="js/app.js"></script>
+  <!-- ===== PROJECT PREVIEW MODAL ===== -->
+  <div class="dialog-backdrop" id="projectModal" hidden>
+    <div class="project-dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle" tabindex="-1">
+      <div class="dialog-heading">
+        <span class="eyebrow" id="dialogCategory">WEB / 2026</span>
+        <button type="button" class="icon-button" id="dialogCloseBtn" aria-label="Close project">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="dialog-media">
+        <span class="media-image loaded">
+          <img id="dialogImage" src="" alt="" />
+        </span>
+      </div>
+      <div class="dialog-description">
+        <div>
+          <h2 id="dialogTitle"></h2>
+          <span class="accent" id="dialogRole"></span>
+          <p id="dialogDesc"></p>
+        </div>
+        <a class="outline-button" id="dialogLink" href="#" target="_blank" rel="noopener noreferrer">
+          <span data-i18n="visitWebsite">Visit live project</span>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MULTI-AGENT LIVE BUILDER OVERLAY & HUD (FROM VIDEO) ===== -->
+  <div class="agent-intro-splash" id="agentIntroSplash" aria-hidden="true">
+    <div class="agent-splash-emblem display">M<span>.</span></div>
+    <div class="agent-splash-sparkles" id="agentSplashSparkles"></div>
+  </div>
+
+  <div class="agent-stage-overlay" id="agentStageOverlay" aria-hidden="true">
+    <div class="agent-selection-box" id="agentSelectionBox">
+      <span class="sel-handle tl"></span>
+      <span class="sel-handle tr"></span>
+      <span class="sel-handle bl"></span>
+      <span class="sel-handle br"></span>
+      <span class="sel-badge" id="agentSelectionBadge">Studio Portrait · 560×740</span>
+    </div>
+    <div id="agentCursorsContainer"></div>
+  </div>
+
+  <div class="agent-hud" id="agentHud" role="region" aria-label="Multi-agent live builder controls">
+    <div class="agent-hud-dots" aria-hidden="true">
+      <span style="--c:#ef4151"></span>
+      <span style="--c:#38bdf8"></span>
+      <span style="--c:#a855f7"></span>
+      <span style="--c:#22c55e"></span>
+      <span style="--c:#f59e0b"></span>
+    </div>
+    <div class="agent-hud-status">
+      <strong id="agentHudCount">21 agents</strong>
+      <span id="agentHudLayers">138 / 309 layers</span>
+    </div>
+    <div class="agent-hud-bar">
+      <div class="agent-hud-fill" id="agentHudFill"></div>
+    </div>
+    <button type="button" class="agent-hud-pill is-active" id="agentTourBtn">Touring</button>
+    <button type="button" class="agent-hud-btn" id="agentSpeedBtn" title="Toggle speed">1x</button>
+    <button type="button" class="agent-hud-btn" id="agentReplayBtn" title="Replay full page build tour">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>
+      </svg>
+    </button>
+    <button type="button" class="agent-hud-btn" id="agentCloseBtn" aria-label="Hide agent overlay">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <script src="js/app.js" defer></script>
 </body>
 </html>
